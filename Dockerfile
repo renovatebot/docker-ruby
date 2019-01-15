@@ -1,7 +1,7 @@
 ARG RUBY_PATH=/usr/local/
 ARG RUBY_VERSION=2.6.0
 
-FROM renovate/base@sha256:071573841326eee841c815b033a276692ab5c58bc2bb4680c3869a16bbdbcfe4 AS build
+FROM renovate/base@sha256:d26a51123d28c40e8ae59c58456f0d9c7203257e906a05262ef0729715b068f3 AS build
 
 USER root
 
@@ -16,7 +16,7 @@ RUN apt-get install -y curl nodejs gcc make libssl-dev libreadline-dev zlib1g-de
 
 RUN ruby-build $RUBY_VERSION $RUBY_PATH
 
-FROM renovate/base@sha256:071573841326eee841c815b033a276692ab5c58bc2bb4680c3869a16bbdbcfe4
+FROM renovate/base@sha256:d26a51123d28c40e8ae59c58456f0d9c7203257e906a05262ef0729715b068f3
 
 USER root
 
