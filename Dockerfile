@@ -1,28 +1,27 @@
-ARG RUBY_PATH=/usr/local/
-ARG RUBY_VERSION=2.6.0
-
-FROM renovate/base@sha256:d26a51123d28c40e8ae59c58456f0d9c7203257e906a05262ef0729715b068f3 AS build
-
-USER root
-
-ARG RUBY_PATH
-ARG RUBY_VERSION
-
-RUN git clone git://github.com/rbenv/ruby-build.git $RUBY_PATH/plugins/ruby-build \
-&&  $RUBY_PATH/plugins/ruby-build/install.sh
-
-RUN apt-get update
-RUN apt-get install -y curl nodejs gcc make libssl-dev libreadline-dev zlib1g-dev libsqlite3-dev
-
-RUN ruby-build $RUBY_VERSION $RUBY_PATH
-
 FROM renovate/base@sha256:d26a51123d28c40e8ae59c58456f0d9c7203257e906a05262ef0729715b068f3
 
 USER root
 
-ARG RUBY_PATH
-ENV PATH $RUBY_PATH/bin:$PATH
+RUN apt-get update && \
+  apt-get install -y --no-install-recommends git curl gcc make libssl-dev && \
+  apt-get clean
 
-COPY --from=build $RUBY_PATH $RUBY_PATH
+RUN cd /tmp && \
+  curl -L https://github.com/postmodern/ruby-install/archive/v0.7.0.tar.gz > ruby-install-0.7.0.tar.gz && \
+  tar -xzvf ruby-install-0.7.0.tar.gz && \
+  cd ruby-install-0.7.0/ && \
+  make install && \
+  cd /tmp && \
+  rm -rf ruby*
+
+ARG RUBY_VERSION
+
+RUN ruby-install -c -j4 --system "ruby-${RUBY_VERSION}" -- --disable-install-rdoc
+
+RUN chmod -R a+rw /usr/local
+
+ADD gemrc /home/ubuntu/.gemrc
+
+RUN chown -R ubuntu:ubuntu /home/ubuntu
 
 USER ubuntu
