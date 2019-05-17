@@ -1,5 +1,4 @@
-install: --no-ri --no-rdoc
-update: --no-ri --no-rdoc
+gem: --no-document
 :benchmark: false
 :verbose: true
 :update_sources: true
