@@ -3,8 +3,7 @@ FROM renovate/base@sha256:bcecb7473f755071cc4e4ad837d4ebfb604918d91e85c1323b0172
 USER root
 
 RUN apt-get update && \
-  apt-get install -y --no-install-recommends git curl gcc make libssl-dev && \
-  apt-get clean
+  apt-get install -y --no-install-recommends git curl gcc make libssl-dev
 
 RUN cd /tmp && \
   curl -L https://github.com/postmodern/ruby-install/archive/v0.7.0.tar.gz > ruby-install-0.7.0.tar.gz && \
@@ -16,7 +15,7 @@ RUN cd /tmp && \
 
 ARG RUBY_VERSION
 
-RUN ruby-install -c -j4 --system "ruby-${RUBY_VERSION}" -- --disable-install-rdoc
+RUN ruby-install -c -j4 --system "ruby-${RUBY_VERSION}" -- --disable-install-doc
 
 RUN chmod -R a+rw /usr/local
 
