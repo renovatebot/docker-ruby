@@ -1,0 +1,18 @@
+version: 2
+jobs:
+  force_build_latest:
+    environment:
+      IMAGE_NAME: renovate/ruby
+    docker:
+      - image: circleci/buildpack-deps:stretch
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Build Docker image
+          command: FORCE=true LATEST_ONLY=true BUILD_ONLY=true ./build.sh
+workflows:
+  version: 2
+  build:
+    jobs:
+      - force_build_latest
