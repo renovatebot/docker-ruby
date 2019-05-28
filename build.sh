@@ -1,16 +1,9 @@
 #!/bin/bash
 
-image=renovate/ruby
+export DATASOURCE=rubyVersion
+export VERSION_SCHEME=ruby
+export START_VERSION=2.4.0
+export IMAGE=ruby
+export IGNORED_VERSIONS=2.5.0-preview1,2.5.0-rc1,2.5.2
 
-function docker_tag_exists() {
-  curl --silent -f -lSL https://index.docker.io/v1/repositories/$1/tags/$2 > /dev/null
-}
-
-for v in $(cat versions.txt); do
-  if docker_tag_exists $image $v; then
-    echo $image:$v tag exists
-  else 
-    docker build --build-arg RUBY_VERSION=$v . -t $image:$v
-    docker push $image:$v
-  fi
-done
+npx renovatebot/dockerbuilder
