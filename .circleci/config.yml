@@ -4,7 +4,7 @@ jobs:
     environment:
       IMAGE_NAME: renovate/ruby
     docker:
-      - image: circleci/buildpack-deps:stretch
+      - image: renovate/buildpack-deps
     steps:
       - checkout
       - setup_remote_docker
