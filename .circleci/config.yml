@@ -7,7 +7,10 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
-          name: Build Docker images
+          name: Configure Docker Hub
+          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+      - run:
+          name: Run Renovate Docker Build Script
           command: ./build.sh
 workflows:
   version: 2
