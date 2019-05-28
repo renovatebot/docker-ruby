@@ -1,18 +1,16 @@
 version: 2
 jobs:
-  force_build_latest:
-    environment:
-      IMAGE_NAME: renovate/ruby
+  build:
     docker:
       - image: renovate/buildpack-deps
     steps:
       - checkout
       - setup_remote_docker
       - run:
-          name: Build Docker image
-          command: FORCE=true LATEST_ONLY=true BUILD_ONLY=true ./build.sh
+          name: Build Docker images
+          command: ./build.sh
 workflows:
   version: 2
   build:
     jobs:
-      - force_build_latest
+      - build
