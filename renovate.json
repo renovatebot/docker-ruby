@@ -2,7 +2,7 @@
   "extends": ["github>renovatebot/docker-template"],
   "packageRules": [
     {
-      "paths": ["releases/*"],
+      "paths": ["releases/**/*"],
       "updateTypes": ["minor", "major"],
       "enabled": false
     }
