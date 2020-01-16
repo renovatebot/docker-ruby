@@ -15,9 +15,7 @@ RUN cd /tmp && \
 
 ARG RUBY_VERSION
 
-RUN ruby-install -c -j4 --system "ruby-${RUBY_VERSION}" -- --disable-install-doc
-
-RUN chmod -R a+rw /usr/local
+RUN ruby-install -c -j4 --system "ruby-${RUBY_VERSION}" -- --disable-install-doc && chmod -R a+rw /usr/local
 
 ADD gemrc /home/ubuntu/.gemrc
 
