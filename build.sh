@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export DATASOURCE=rubyVersion
+export DATASOURCE=ruby-version
 export VERSION_SCHEME=ruby
 export START_VERSION=2.4.0
 export IMAGE=ruby
