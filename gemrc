@@ -1,5 +1,0 @@
-gem: --no-document
-:benchmark: false
-:verbose: true
-:update_sources: true
-:backtrace: false

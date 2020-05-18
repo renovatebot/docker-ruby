@@ -1,12 +1,4 @@
 {
-  "extends": ["github>renovatebot/docker-template"],
-  "packageRules": [
-    {
-      "paths": ["releases/"],
-      "updateTypes": ["minor", "major"],
-      "enabled": false
-    }
-  ],
-  "separateMinorPatch": true,
-  "groupName": "ruby"
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["github>renovatebot/presets-internal:docker-images"]
 }
