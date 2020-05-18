@@ -1,5 +1,7 @@
+[![Build status](https://github.com/renovatebot/docker-ruby/workflows/build/badge.svg)](https://github.com/renovatebot/docker-ruby/actions?query=workflow%3Abuild)
+[![Docker Image Size](https://img.shields.io/docker/image-size/renovate/ruby/latest)](https://hub.docker.com/r/renovate/ruby)
+[![Version](https://img.shields.io/docker/v/renovate/ruby/latest)](https://hub.docker.com/r/renovate/ruby)
+
 # docker-ruby
 
-This repository is used to build the `renovate/ruby` images for Docker Hub.
-
-The `.ruby-version` file is not actually _used_ in the build - its purpose is to trigger PRs from Renovate when newer versions are available.
+This repository is the source for the Docker Hub image `renovate/python`. Commits to `master` branch are automatically built and published.
