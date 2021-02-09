@@ -1,7 +1,7 @@
 # renovate: datasource=ruby-version depName=ruby-version versioning=ruby
 ARG RUBY_VERSION=2.7.2
 
-FROM renovate/buildpack:3-ruby@sha256:e8ae8e0812d3879a32faa70d26496825cc1f88faeb1b61bf17056b08050864f3
+FROM renovate/buildpack:4-ruby@sha256:a8d560e9a6d4fe9089ab333e816a098254d33cbf056b054e8aff0fa43db13bd9
 
 ARG RUBY_VERSION
 RUN install-tool ruby
