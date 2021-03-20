@@ -3,8 +3,8 @@ name: build
 on:
   push:
     branches:
-      - master
-      - 'renovate/**'
+      - main
+      - "renovate/**"
 
   pull_request:
 
@@ -33,4 +33,4 @@ jobs:
         uses: renovatebot/internal-tools@v1.3.6
         with:
           command: "docker-builder"
-          dry-run: ${{github.ref != 'refs/heads/master'}}
+          dry-run: ${{github.ref != 'refs/heads/main'}}
