@@ -1,4 +1,4 @@
-# renovate: datasource=github-releases lookupName=renovatebot/ruby versioning=ruby
+# renovate: datasource=github-releases lookupName=containerbase/ruby-prebuild versioning=ruby
 ARG RUBY_VERSION=2.7.3
 
 FROM renovate/buildpack:4-ruby@sha256:026771c3f139d13cbafeb5d27599ac5b9e0233a26718d5066e58109e6719b330
