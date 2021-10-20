@@ -8,9 +8,9 @@ on:
 
   pull_request:
 
-env:
-  # https://github.com/chalk/supports-color/issues/106
-  FORCE_COLOR: true
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
