@@ -11,7 +11,7 @@ FROM scratch
 ENV RUBY_VERSION=2.6.10
 
 # renovate: datasource=github-releases depName=containerbase/ruby-prebuild versioning=ruby
-ENV RUBY_VERSION=2.7.5
+ENV RUBY_VERSION=2.7.6
 
 # renovate: datasource=github-releases depName=containerbase/ruby-prebuild versioning=ruby
 ENV RUBY_VERSION=3.0.3
