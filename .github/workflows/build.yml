@@ -28,7 +28,7 @@ jobs:
       - uses: sigstore/cosign-installer@536b37ec5d5b543420bdfd9b744c5965bd4d8730 # tag=v2.3.0
 
       - name: docker-config
-        uses: renovatebot/internal-tools@a50d74061b7eab05dcf62be1939bd3b039356617 # tag=v1.12.11
+        uses: renovatebot/internal-tools@d34f8baa84d2fe53118c1dabee065c276d3aec9d # tag=v1.12.12
         with:
           command: docker-config
 
@@ -37,7 +37,7 @@ jobs:
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
 
       - name: Build and Publish
-        uses: renovatebot/internal-tools@a50d74061b7eab05dcf62be1939bd3b039356617 # tag=v1.12.11
+        uses: renovatebot/internal-tools@d34f8baa84d2fe53118c1dabee065c276d3aec9d # tag=v1.12.12
         with:
           command: "docker-builder"
           dry-run: ${{github.ref != 'refs/heads/main'}}
