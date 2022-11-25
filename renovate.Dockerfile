@@ -17,4 +17,4 @@ ENV RUBY_VERSION=2.7.7
 ENV RUBY_VERSION=3.0.5
 
 # renovate: datasource=github-releases depName=containerbase/ruby-prebuild versioning=ruby
-ENV RUBY_VERSION=3.1.2
+ENV RUBY_VERSION=3.1.3
